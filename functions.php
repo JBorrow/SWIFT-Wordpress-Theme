@@ -14,6 +14,31 @@ class SWIFT_sidebar extends WP_Widget
 		return;
 	}
 
+	public function widget($start=0, $stop=10000)
+	{
+		echo make_top($start, $stop);
+	}
+
+	public function make_top($start, $stop, $max=3)
+	{
+		/* Makes a string that contains divs of all of the most recent stories,
+		 * where $start and $stop are the ids to start and stop at.
+		 */
+		$recent = get_most_recent($start, $stop);
+		$counter = 0;  // posts echoed
+		$post_string = "";
+
+		foreach ($recent as $post) {
+			if ($counter < $max) {
+				$post_string . make_post($post);
+			} else {
+				break;
+			}
+		}
+
+		return $post_string;
+	}
+	
 	private function get_most_recent($start, $stop)
 	{
 		/* Grabs the posts in the range of ids $start to $stop, and makes sure
@@ -35,6 +60,15 @@ class SWIFT_sidebar extends WP_Widget
 
 		array_multisort($times, SORT_DESC, $posts);  // in time order
 		return $posts;
+	}
+
+	private function make_post($post_array)
+	{
+		/* Packages the content of a post array up into a string for echoing
+		 */
+		$content = $this->ready_for_sidebar($post_array->post_content);
+		$title = $post_array->post-title;
+		return "<div class=\"news\"><h1>$title</h1>$content</div>";
 	}
 
 	private function ready_for_sidebar($content, $max_char=400,
@@ -72,7 +106,5 @@ class SWIFT_sidebar extends WP_Widget
 			return array($content, 0);  // bool for ready_for_sidebar
 		}
 	}
-
-
 }
 
