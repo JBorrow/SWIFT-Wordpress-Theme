@@ -5,9 +5,10 @@
  * josh.borrow@gmail.com
  */
 
-get_header()
+$the_title = get_the_title($_GET['page_id']);
+get_header();
 
-if ($pagename != 'news') {
+if ($the_title != 'News') {
 	echo "<div class=\"container\">";
     if (have_posts()) {
         while (have_posts()) {
@@ -26,5 +27,5 @@ if ($pagename != 'news') {
 	print 'lets do news stuff';
 }
 
-get_footer() ?>
+get_footer();
 
