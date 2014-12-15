@@ -24,13 +24,16 @@ class SWIFT_sidebar extends WP_Widget
 		/* Makes a string that contains divs of all of the most recent stories,
 		 * where $start and $stop are the ids to start and stop at.
 		 */
-		$recent = get_most_recent($start, $stop);
+		
+		$recent = $this->get_most_recent($start, $stop);
 		$counter = 0;  // posts echoed
 		$post_string = "";
-
+		
 		foreach ($recent as $post) {
 			if ($counter < $max) {
-				$post_string . make_post($post);
+				$this_string = $this->make_post($post);
+				$post_string .= $this_string;
+				$counter += 1;
 			} else {
 				break;
 			}
@@ -67,44 +70,23 @@ class SWIFT_sidebar extends WP_Widget
 		/* Packages the content of a post array up into a string for echoing
 		 */
 		$content = $this->ready_for_sidebar($post_array->post_content);
-		$title = $post_array->post-title;
-		return "<div class=\"news\"><h1>$title</h1>$content</div>";
+		$title = $post_array->post_title;
+		$id = $post_array->ID;
+
+		return "<a href=\"index.php?page_id=$id\"><div class=\"news\">
+			<h1>$title</h1>$content</div></a>";
 	}
 
 	private function ready_for_sidebar($content, $max_char=400,
 				  	 $allowed_tags='<h1><h2><h3><h4><h5><h6><p><img>')
 	{
-		/* Puts the content into a neat sidebar-like format, cleaning tags. Also
-		 * checks if the tailing characters are </p> tags and deals with them
-		 * appropriately
+		/* Puts the content into a neat sidebar-like format, cleaning tags.
 		 */
 		$small = substr($content, 0, $max_char);
-		$stripped = strip_tags($smaller, $allowed_tags);  // no double hyperlink
-
-		foreach (range(1, 4) as $char) {
-			$test = $this->is_trail_p($stripped, $char);
-			if ($test[1]) {
-				return $test[0] . "...</p>";
-			} else {
-				continue;
-			}
-		}
-
+		$stripped = strip_tags($small, $allowed_tags);  // no double hyperlink
+		
 		return "$stripped...</p>";  // we have no trailing characeters
 	}
 
-	private function is_trail_p($content, $chars)
-	{
-		/* Checks if the characters on the end of $content are </p> and strips
-		 * them, if they are.
-		 */
-		$end = substr($content, -$chars);
-		$compare = substr("</p>", 0, -$chars);
-		if ($end == $compare) {
-			return array(substr($content, 0, -$chars), 1);
-		} else {
-			return array($content, 0);  // bool for ready_for_sidebar
-		}
-	}
 }
 
