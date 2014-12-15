@@ -90,7 +90,7 @@ class SWIFT_sidebar extends WP_Widget
 			}
 		}
 
-		reutrn $stripped . "...</p>";  // we have no trailing characeters
+		return "$stripped...</p>";  // we have no trailing characeters
 	}
 
 	private function is_trail_p($content, $chars)
