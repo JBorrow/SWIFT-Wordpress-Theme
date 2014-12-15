@@ -16,7 +16,7 @@ class SWIFT_sidebar extends WP_Widget
 
 	public function widget($start=0, $stop=10000)
 	{
-		echo make_top($start, $stop);
+		echo $this->make_top($start, $stop);
 	}
 
 	public function make_top($start, $stop, $max=3)
@@ -89,11 +89,4 @@ class SWIFT_sidebar extends WP_Widget
 	}
 
 }
-
-// Load Widget
-
-function wpb_load_widget() {
-	register_widget('SWIFT_sidebar');
-}
-add_action('widgets_init', 'wpb_load_widget');
 
