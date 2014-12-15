@@ -90,3 +90,10 @@ class SWIFT_sidebar extends WP_Widget
 
 }
 
+// Load Widget
+
+function wpb_load_widget() {
+	register_widget('SWIFT_sidebar');
+}
+add_action('widgets_init', 'wpb_load_widget');
+
