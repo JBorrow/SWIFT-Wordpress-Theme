@@ -37,6 +37,10 @@ a {
 	color:#0071c5;  /* intel blue */
 }
 
+img {
+	border:1px solid #0071c5;  /* intel blue */
+}
+
 /* END GENERAL
  * HEADER */
 
@@ -68,12 +72,12 @@ a {
 }
 
 .navbar a:hover {
-	color:#0BBADC;
+	color:#0B4CDC;
 }
 
 .current_page_item a {
 	font-family:'cmub';
-	color:#0BBADC;
+	color:#0B4CDC;
 }
 
 /* END NAVBAR
@@ -82,10 +86,12 @@ a {
 .container {
 	width:61em;
 	margin:auto;
+	margin-top:-1em;
 }
 
 .container img {
-	width: 40em;
+	max-width:40em;
+	height:auto;
 }
 
 /* END CONTAINER
@@ -107,6 +113,11 @@ a {
 .news {
 	width:18em;
 	padding:1em;
+	float:left;
+}
+
+.news:hover {
+	opacity:0.8;
 }
 
 .news h1 {
@@ -118,7 +129,21 @@ a {
 	height:auto;  /* because of wordpress' auto styling */
 }
 
+/* END SIDEBAR
+ * FOOTER */
 
+.getsinway {
+	height:10em;
+	width:10em;
+	clear:both;
+}
+
+footer img {
+	height:1.5em;
+	clear:both;
+	padding:0 0.5em 0 0.5em;
+	border:none;
+}
 
 
 
