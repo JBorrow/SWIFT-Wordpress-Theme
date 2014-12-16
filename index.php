@@ -10,6 +10,7 @@ get_header();
 
 if ($the_title != 'News') {
 	echo "<div class=\"container\">";
+	echo "<div class=\"content\">";
     if (have_posts()) {
         while (have_posts()) {
             the_post();
@@ -19,10 +20,11 @@ if ($the_title != 'News') {
             the_content();
         }
 	}
-	echo "</div>";  // container
+	echo "</div>";  // content
 	echo "<div class=\"sidebar\">";
 	get_sidebar();
 	echo "</div>";  // sidebar
+	echo "</div>";  // container
 } else {
 	$news = new SWIFT_sidebar;  // see functions.php
 	echo $news->make_top(0, 10000, 50);
