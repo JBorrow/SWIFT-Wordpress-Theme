@@ -72,12 +72,12 @@ img {
 }
 
 .navbar a:hover {
-	color:#0B4CDC;
+	opacity:0.8;
 }
 
 .current_page_item a {
 	font-family:'cmub';
-	color:#0B4CDC;
+	opacity:0.8;	
 }
 
 /* END NAVBAR
@@ -108,6 +108,7 @@ img {
 .sidebar {
 	width:20em;
 	float:right;
+	margin-top:-0.5em;  /* to line up with h1 on main side */
 }
 
 .news {
