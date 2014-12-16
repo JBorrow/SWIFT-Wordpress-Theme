@@ -78,7 +78,7 @@ class SWIFT_sidebar extends WP_Widget
 	}
 
 	private function ready_for_sidebar($content, $max_char=400,
-				  	 $allowed_tags='<h1><h2><h3><h4><h5><h6><p><img>')
+				  	 $allowed_tags='<h1><h2><h3><h4><h5><h6><p><img><div>')
 	{
 		/* Puts the content into a neat sidebar-like format, cleaning tags.
 		 */

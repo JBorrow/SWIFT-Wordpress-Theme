@@ -41,6 +41,21 @@ img {
 	border:1px solid #0071c5;  /* intel blue */
 }
 
+.wp-caption {
+	width:auto !important;  /* to override wordpress */
+	overflow:none;
+	padding-bottom:0;
+	margin-bottom:0;
+}
+
+.wp-caption-text {
+	font-size:0.75em;
+	font-family:'cmub';
+	text-align:left;
+	margin-top:-0.5em;
+	text-align:center;
+}
+
 /* END GENERAL
  * HEADER */
 
