@@ -1,0 +1,85 @@
+/*
+Theme Name: SWIFT
+Theme URI:
+Description: WordPress theme for the SWIFT project at the ICC, Durham University
+Version: 1
+Author: Josh Borrow
+Author URI: http://www.github.com/JBorrow
+*/
+
+@font-face {
+    font-family:"cmu";
+    src:url(fonts/cmu.ttf);
+}
+
+@font-face {
+    font-family:"cmub";
+    src:url(fonts/cmubold.ttf);
+}
+
+@font-face {
+    font-family:"cmui";
+    src:url(fonts/cmuitalic.ttf);
+}
+
+/* GENERAL */
+
+html * {
+	font-family:'cmu', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:'cmub', sans-serif;
+}
+
+a {
+	text-decoration:none;
+	color:#0071c5;  /* intel blue */
+}
+
+/* END GENERAL
+ * HEADER */
+
+.header {
+	text-align:center;
+	font-size:1.5em;
+}
+
+.header h2 { /* subtitle needs to be italic */
+	font-family:'cmui';
+	font-size:1em;
+}
+
+/* END HEADER
+ * NAVBAR */
+
+.navbar {
+	text-align:center;
+}
+
+.navbar li {
+	display:inline-block;
+	padding:0.5em;
+}
+
+.navbar a {
+	padding: 0.5em;
+	overflow:auto;
+}
+
+.navbar a:hover {
+	color:#0BBADC;
+}
+
+.current_page_item a {
+	font-family:'cmub';
+	color:#0BBADC;
+}
+
+/* END NAVBAR
+ * CONTAINER */
+
+
+
+
+
