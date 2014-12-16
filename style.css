@@ -79,6 +79,46 @@ a {
 /* END NAVBAR
  * CONTAINER */
 
+.container {
+	width:61em;
+	margin:auto;
+}
+
+.container img {
+	width: 40em;
+}
+
+/* END CONTAINER
+ * CONTENT */
+
+.content {
+	width:40em;  /* so we line up correctly, otherwise sidebar below cont. */
+	float:left;
+}
+
+/* END CONTENT
+ * SIDEBAR */
+
+.sidebar {
+	width:20em;
+	float:right;
+}
+
+.news {
+	width:18em;
+	padding:1em;
+}
+
+.news h1 {
+	font-size:1.5em;  /* h2 size */
+}
+
+.news img {
+	width:18em;
+	height:auto;  /* because of wordpress' auto styling */
+}
+
+
 
 
 
