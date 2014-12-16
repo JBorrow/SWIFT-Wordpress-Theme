@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
+	<head>
+		<meta charset="<?php bloginfo( 'charset' ); ?>">
+		<meta name="viewport" content="width=device-width">
         <title><?php bloginfo('title');?></title>
         <link rel="stylesheet" href="<?php bloginfo('stylesheet_url');?>" type="text/css" media="screen"/>
         <?php wp_head();?>
