@@ -26,8 +26,10 @@ if ($the_title != 'News') {
 	echo "</div>";  // sidebar
 	echo "</div>";  // container
 } else {
+	echo "<div class=\"container\">";
 	$news = new SWIFT_sidebar;  // see functions.php
 	echo $news->make_top(0, 10000, 50);
+	echo "</div>";  // container
 }
 
 get_footer();
