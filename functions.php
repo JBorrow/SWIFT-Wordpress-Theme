@@ -84,8 +84,11 @@ class SWIFT_sidebar extends WP_Widget
 		 */
 		$small = substr($content, 0, $max_char);
 		$stripped = strip_tags($small, $allowed_tags);  // no double hyperlink
-		
-		return "$stripped...</p>";  // we have no trailing characeters
+		$img = img_caption_shortcode(Null, $stripped);  // assume 1 image
+		$content = preg_replace('#\s*\[caption[^]]*\].*?\[/caption\]\s*#is',
+			                    $img, $stripped);  // remove caption tags
+
+		return substr($content, 0, -6) . "...";  // no trailing nbsp
 	}
 
 }
